@@ -1,22 +1,34 @@
 # Setting Up a Mojo Development Environment
 
-This guide provides step-by-step instructions to download, install, and set up a Mojo development environment in **WSL2** (Windows Subsystem for Linux). It also includes instructions on how to activate and deactivate the environment.
+This repository provides step-by-step instructions to set up **Mojo**, a cutting-edge programming language, in a Windows Subsystem for Linux (WSL2) environment using **Miniconda**. Whether you're a beginner or experienced developer, this guide ensures a seamless experience in building and using Mojo.
 
----
+
+
+## Table of Contents
+
+- Prerequisites
+- Steps to Set Up the Mojo Environment
+  - Install WSL2 and Update Ubuntu
+  - Install Miniconda
+  - Set Up the Mojo Environment
+- Using the Mojo Environment
+- Additional Notes
+
+\newpage
 
 ## **Prerequisites**
 
-Before starting, ensure you have the following:
+Before starting, ensure you have thok e following:
 
 1. **Windows 11** with WSL2 installed.
 2. **Ubuntu (22.04 recommended)** running in WSL2.
 3. **Internet Access**.
 
----
+\newpage
 
 ## **Steps to Set Up the Mojo Environment**
 
-### **1. Install WSL2 and Update Ubuntu**
+### **Install WSL2 and Update Ubuntu**
 
 Ensure WSL2 and Ubuntu are installed and up to date:
 
@@ -26,24 +38,19 @@ sudo apt update && sudo apt upgrade -y
 
 #### **Diagram: System Overview**
 
-```plaintext
-+-----------------------------------+
-| Windows 11 (Host OS)             |
-|                                   |
-| +-----------------------------+   |
-| | WSL2 (Linux Subsystem)      |   |
-| |                             |   |
-| | +-------------------------+ |   |
-| | | Ubuntu 22.04 (Linux)    | |   |
-| | |                         | |   |
-| | +-------------------------+ |   |
-| +-----------------------------+   |
-+-----------------------------------+
+```mermaid
+%%{init: {'theme': 'forest'}}%%
+graph TD
+    A[Windows 11 Host OS] -->|Contains| B[WSL2 Linux Subsystem]
+    B -->|Runs| C[Ubuntu 22.04]
+    style A fill:#f5f5f5,stroke:#333,stroke-width:2px
+    style B fill:#e6f3ff,stroke:#333,stroke-width:2px
+    style C fill:#e6ffe6,stroke:#333,stroke-width:2px
 ```
 
----
 
-### **2. Install Miniconda**
+
+### **Install Miniconda**
 
 Miniconda is used to manage the Mojo environment.
 
@@ -81,26 +88,24 @@ Miniconda is used to manage the Mojo environment.
 
 #### **Diagram: WSL2 with Miniconda Installed**
 
-```plaintext
-+-----------------------------------+
-| Windows 11 (Host OS)             |
-|                                   |
-| +-----------------------------+   |
-| | WSL2 (Linux Subsystem)      |   |
-| |                             |   |
-| | +-------------------------+ |   |
-| | | Ubuntu 22.04 (Linux)    | |   |
-| | | +---------------------+ | |   |
-| | | | Miniconda Installed | | |   |
-| | | +---------------------+ | |   |
-| | +-------------------------+ |   |
-| +-----------------------------+   |
-+-----------------------------------+
+```mermaid
+graph TD
+    A[Windows 11 Host OS] -->|Contains| B[WSL2 Linux Subsystem]
+    B -->|Runs| C[Ubuntu 22.04]
+    C -->|Hosts| D[Miniconda Installation]
+    D -->|Manages| E[Python Packages]
+    D -->|Manages| F[Environment Variables]
+    style A fill:#f5f5f5,stroke:#333,stroke-width:2px
+    style B fill:#e6f3ff,stroke:#333,stroke-width:2px
+    style C fill:#e6ffe6,stroke:#333,stroke-width:2px
+    style D fill:#ffe6e6,stroke:#333,stroke-width:2px
+    style E fill:#f0f0f0,stroke:#333,stroke-width:2px
+    style F fill:#f0f0f0,stroke:#333,stroke-width:2px
 ```
 
----
+\newpage
 
-### **3. Set Up the Mojo Environment**
+### **Set Up the Mojo Environment**
 
 #### **Add Required Channels**
 
@@ -134,27 +139,26 @@ Miniconda is used to manage the Mojo environment.
 
 #### **Diagram: Conda Environment for Mojo**
 
-```plaintext
-+-----------------------------------+
-| Windows 11 (Host OS)             |
-|                                   |
-| +-----------------------------+   |
-| | WSL2 (Linux Subsystem)      |   |
-| |                             |   |
-| | +-------------------------+ |   |
-| | | Ubuntu 22.04 (Linux)    | |   |
-| | | +---------------------+ | |   |
-| | | | Miniconda Installed | | |   |
-| | | | +-----------------+ | | |   |
-| | | | | mojo-env Active | | | |   |
-| | | | +-----------------+ | | |   |
-| | | +---------------------+ | |   |
-| | +-------------------------+ |   |
-| +-----------------------------+   |
-+-----------------------------------+
+```mermaid
+graph TD
+    A[Windows 11 Host OS] -->|Contains| B[WSL2 Linux Subsystem]
+    B -->|Runs| C[Ubuntu 22.04]
+    C -->|Hosts| D[Miniconda Installation]
+    D -->|Contains| E[mojo-env]
+    E -->|Includes| F[Mojo Compiler]
+    E -->|Includes| G[Development Tools]
+    E -->|Provides| H[magic CLI]
+    style A fill:#f5f5f5,stroke:#333,stroke-width:2px
+    style B fill:#e6f3ff,stroke:#333,stroke-width:2px
+    style C fill:#e6ffe6,stroke:#333,stroke-width:2px
+    style D fill:#ffe6e6,stroke:#333,stroke-width:2px
+    style E fill:#fff2cc,stroke:#333,stroke-width:2px
+    style F fill:#f0f0f0,stroke:#333,stroke-width:2px
+    style G fill:#f0f0f0,stroke:#333,stroke-width:2px
+    style H fill:#f0f0f0,stroke:#333,stroke-width:2px
 ```
 
----
+\newpage
 
 ## **Using the Mojo Environment**
 
@@ -182,7 +186,7 @@ To completely leave the WSL2 environment:
 exit
 ```
 
----
+\newpage
 
 ## **Additional Notes**
 
@@ -199,8 +203,6 @@ exit
   ```bash
   rm -rf ~/miniconda3
   ```
-
----
 
 This guide should help you set up and manage a reliable Mojo development environment.
 
